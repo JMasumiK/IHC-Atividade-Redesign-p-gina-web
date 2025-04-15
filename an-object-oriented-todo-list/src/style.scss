@@ -1,0 +1,157 @@
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome|zocial);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
+
+$color--work: tint(red, 20%);
+$color--private: shade(lightgreen, 20%);
+
+* {
+  margin: 0;
+  padding: 0;
+  @include box-sizing(border-box);
+}
+
+a {
+  color: $color--work;
+  text-decoration: none;
+    &:hover {
+      color: $color--private;
+    }
+}
+
+a[href*="reddit"]:before {
+  font-family: 'zocial', sans-serif;
+  content: '> ';
+}
+
+body {
+  font: 1rem/1.3 'Open Sans', sans-serif;
+  color: black;
+  background: white;
+}
+
+h3 {
+  margin: 1em 0 0;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 45em;
+  margin: 0 auto;
+}
+
+.info {
+  width: 100%;
+  background: #f1f1f1;
+  border-top: 5px solid #324566;
+  margin: 1.5em auto;
+  padding: 1.5em;
+  
+  p {
+    margin: .5em 0;
+  }
+}
+
+.list {
+  width: 100%;
+  padding: 1em;
+  float: left;
+  background: #ddd;
+  
+  li {
+    background: white;
+    padding: .5em;
+    margin: 0 0 .25em;
+    list-style: none;
+    border-radius: 3px;
+    border-bottom: .125em solid #9c9c9c;
+    position: relative;
+    
+    &:hover {
+      cursor: pointer;
+      background: tint(red, 30%);
+      border-bottom-color: shade(red, 10%);
+    
+        &:after {
+          font-family: 'FontAwesome', sans-serif;
+          content: "\f057"; 
+          position: absolute;
+          color: shade(red, 20%);
+          right: .5em;
+          top: 50%;
+          @include translateY(-50%);
+        }
+      
+    }
+    
+    &.todo--is-done {
+      background: #cacaca;
+      color: #9c9c9c;
+      text-decoration: line-through;
+      
+        &:hover {
+          border-bottom-color: #9c9c9c;
+          background: lighten(#cacaca, 10%);
+          
+          &:after {
+            content: '';
+          }
+        }
+     }
+  }
+}
+
+.list__header {
+  margin-bottom: .5em;
+  
+  a {
+   float: right;
+    text-decoration: none;
+  }
+}
+
+.btn {
+  background: #333;
+  color: white;
+  padding: .25em .5em;
+  display: inline-block;
+  border-radius: 3px;
+  
+  &:hover {
+    background: tint(#333, 5%);
+  }
+}
+
+.list--work {
+  border-top: 5px solid $color--work;
+}
+.list--private {
+  border-top: 5px solid $color--private;
+}
+
+.input {
+   display: block;
+   width: 100%;
+   padding: .5em;
+   margin: 1em 0 0 0;
+   border-radius: 3px;
+}
+
+.input--work {
+  border: 1px solid $color--work;
+}
+.input--private {
+  border: 1px solid $color--private;
+}
+
