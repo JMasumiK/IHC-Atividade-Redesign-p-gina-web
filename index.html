@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas Moderna</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="app-header">
+      <h1>Lista de Tarefas ✅</h1>
+      <div class="app-description">
+        <p>Adicione tarefas com Enter | Clique para remover | Desfaça acções</p>
+      </div>
+    </header>
+
+    <section class="lists-grid">
+      <!-- Lista Trabalho -->
+      <article class="todo-card" data-list="work">
+        <header class="card-header">
+          <h2>Trabalho</h2>
+          <button class="undo-btn" data-undo="work">↩️ Desfazer</button>
+        </header>
+        
+        <ul class="todo-items" data-list-items="work">
+          <li>Reunião diária</li>
+          <li>Revisar código</li>
+          <li>Atualizar documentação</li>
+        </ul>
+
+        <form class="add-form" data-form="work">
+          <input 
+            type="text" 
+            class="todo-input"
+            placeholder="Nova tarefa..."
+            data-input="work"
+          >
+        </form>
+      </article>
+
+      <!-- Lista Pessoal -->
+      <article class="todo-card" data-list="personal">
+        <header class="card-header">
+          <h2>Pessoal</h2>
+          <button class="undo-btn" data-undo="personal">↩️ Desfazer</button>
+        </header>
+        
+        <ul class="todo-items" data-list-items="personal">
+          <li>Fazer exercícios</li>
+          <li class="completed">Comprar mantimentos</li>
+          <li>Ler livro</li>
+        </ul>
+
+        <form class="add-form" data-form="personal">
+          <input 
+            type="text" 
+            class="todo-input"
+            placeholder="Nova tarefa..."
+            data-input="personal"
+          >
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
