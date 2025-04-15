@@ -3,24 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Lista de Tarefas Moderna</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
 </head>
 <body>
   <main class="container">
     <header class="app-header">
-      <h1>Lista de Tarefas ✅</h1>
+      <h1>Lista de Tarefas <span aria-hidden="true">✅</span></h1>
       <div class="app-description">
-        <p>Adicione tarefas com Enter | Clique para remover | Desfaça acções</p>
+        <p>Adicione tarefas com Enter | Clique para remover | Desfaça ações</p>
       </div>
     </header>
 
-    <section class="lists-grid">
-      <!-- Lista Trabalho -->
+    <section class="lists-grid" aria-label="Listas de tarefas">
+      <!-- Lista trabalho -->
       <article class="todo-card" data-list="work">
         <header class="card-header">
           <h2>Trabalho</h2>
-          <button class="undo-btn" data-undo="work">↩️ Desfazer</button>
+          <button 
+            class="undo-btn" 
+            data-undo="work"
+            aria-label="Desfazer última ação na lista de trabalho"
+          >
+            <span aria-hidden="true">↩️</span> Desfazer
+          </button>
         </header>
         
         <ul class="todo-items" data-list-items="work">
@@ -30,34 +49,46 @@
         </ul>
 
         <form class="add-form" data-form="work">
+          <label for="work-input" class="sr-only">Nova tarefa de trabalho</label>
           <input 
             type="text" 
+            id="work-input"
             class="todo-input"
             placeholder="Nova tarefa..."
             data-input="work"
+            aria-required="true"
           >
         </form>
       </article>
 
-      <!-- Lista Pessoal -->
+      <!-- Lista pessoal -->
       <article class="todo-card" data-list="personal">
         <header class="card-header">
           <h2>Pessoal</h2>
-          <button class="undo-btn" data-undo="personal">↩️ Desfazer</button>
+          <button 
+            class="undo-btn" 
+            data-undo="personal"
+            aria-label="Desfazer última ação na lista pessoal"
+          >
+            <span aria-hidden="true">↩️</span> Desfazer
+          </button>
         </header>
         
         <ul class="todo-items" data-list-items="personal">
-          <li>Fazer exercícios</li>
           <li class="completed">Comprar mantimentos</li>
+          <li>Fazer exercícios</li>
           <li>Ler livro</li>
         </ul>
 
         <form class="add-form" data-form="personal">
+          <label for="personal-input" class="sr-only">Nova tarefa pessoal</label>
           <input 
             type="text" 
+            id="personal-input"
             class="todo-input"
             placeholder="Nova tarefa..."
             data-input="personal"
+            aria-required="true"
           >
         </form>
       </article>
